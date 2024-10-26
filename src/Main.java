@@ -4,28 +4,26 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         MiniChatBot bot = new MiniChatBot();
+        String mensagem = "";
 
         System.out.println(bot.mensagemInicial());
 
-        boolean jorge = true;
-
-        while (jorge) {
+        while (!mensagem.equals("Sair")) {
             System.out.print("\nUsuário: ");
-            String mensagem1 = sc.next();
+            mensagem = sc.nextLine().trim().toLowerCase();
 
-            if (mensagem1.contains("Olá") || mensagem1.contains("Oi") || mensagem1.contains("Fala baiano")) {
+            if (mensagem.contains("olá") || mensagem.contains("oi") || mensagem.contains("fala baiano")) {
                 System.out.println("MiniChatBot: " + bot.mensagemDeSaudacao());
-            } else if (mensagem1.contains("Como você está?") || mensagem1.contains("Está tudo bem por aí?") || mensagem1.contains("Está tudo bem?") || mensagem1.contains("Tudo certo com você?")) {
+            } else if (mensagem.contains("como você está?") || mensagem.contains("está tudo bem por aí?") || mensagem.contains("está tudo bem?") || mensagem.contains("tudo certo com você?")) {
                 System.out.println("MiniChatBot: " + bot.estadoFisicoEMental());
-            } else if (mensagem1.contains("Qual é o seu nome?") || mensagem1.contains("Como você se chama?") || mensagem1.contains("Posso saber seu nome?") || mensagem1.contains("Qual é o seu nome mesmo?") || mensagem1.contains("Pode me dizer seu nome?")) {
+            } else if (mensagem.contains("qual é o seu nome?") || mensagem.contains("como você se chama?") || mensagem.contains("posso saber seu nome?") || mensagem.contains("qual é o seu nome mesmo?") || mensagem.contains("pode me dizer seu nome?")) {
                 System.out.println("MiniChatBot: " + bot.meuNome());
-            } else if (mensagem1.contains("Sair")) {
-                jorge = false;
+            } else if (mensagem.contains("sair")) {
+                break;
             } else {
                 System.out.println("MiniChatBot: " + bot.euNaoEntendiQueEleFalou());
             }
         }
-
     }
 
 }
